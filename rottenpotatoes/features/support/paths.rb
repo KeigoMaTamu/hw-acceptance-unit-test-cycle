@@ -21,8 +21,7 @@ module NavigationHelpers
     #   when /^(.*)'s profile page$/i
     #     user_profile_path(User.find_by_login($1))
     when /^the edit page for "(.*)"$/
-      movie_id = Movie.find_by(title: $1).id
-      edit_movie_path(movie_id)
+      edit_movie_path(Movie.find_by_title($1).id)
     when /^the details page for "(.+)"$/
       movie = Movie.find_by(title: $1)
       movie_path(movie)
